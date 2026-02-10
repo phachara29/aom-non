@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossy Girl | บิวตี้ที่คุณออกแบบได้ ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6f91;
+            --secondary: #845ec2;
+            --accent: #ffc75f;
+            --text: #2d3436;
+            --bg: #fff;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .hero-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.4;
+            animation: move 20s infinite alternate;
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            right: -100px;
+            top: -100px;
+            animation-duration: 15s;
+        }
+
+        @keyframes move {
+            from {
+                transform: translate(-20%, -20%) scale(1);
+            }
+
+            to {
+                transform: translate(20%, 20%) scale(1.2);
+            }
+        }
+
+        /* Content */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            max-width: 900px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 82px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 18px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(255, 111, 145, 0.25);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(255, 111, 145, 0.35);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--text);
+            border: 1px solid #eee;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
+            transform: translateY(-3px);
+        }
+
+        /* Floating elements */
+        .glass-card {
+            position: absolute;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 5;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 52px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .blob {
+                width: 300px;
+                height: 300px;
+            }
+
+            .glass-card {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero-container">
+        <!-- Background Orbs -->
+        <div class="blob"></div>
+        <div class="blob blob-2"></div>
+
+        <!-- Floating UI elements -->
+        <div class="glass-card" style="top: 20%; left: 15%; animation-delay: 0s;">
+            <div
+                style="background: var(--accent); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                ✨</div>
+            <div>
+                <div style="font-weight: 800; font-size: 14px;">Premium Quality</div>
+                <div style="font-size: 12px; opacity: 0.6;">สินค้านำเข้า 100%</div>
+            </div>
+        </div>
+
+        <div class="glass-card" style="bottom: 20%; right: 15%; animation-delay: 2s;">
+            <div
+                style="background: var(--primary); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                💖</div>
+            <div>
+                <div style="font-weight: 800; font-size: 14px;">50k+ Happy Customers</div>
+                <div style="font-size: 12px; opacity: 0.6;">ลูกค้าพึงพอใจสูงสุด</div>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <span class="badge">New Collection 2026 ✨</span>
+            <h1>Glossy Girl<br>Unlock Your Beauty</h1>
+            <p>สัมผัสประสบการณ์ความงามรูปแบบใหม่ กับคอลเลกชันเครื่องสำอางเกรดพรีเมียมที่จะทำให้คุณโดดเด่นในทุกช่วงเวลา
+                ✨💄</p>
+
+            <div class="cta-group">
+                <a href="shop1.html" class="btn btn-primary">เข้าสู่ร้านค้า ✨</a>
+                <a href="register.html" class="btn btn-secondary">สมัครสมาชิกฟรี</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
